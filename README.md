@@ -3,6 +3,7 @@
 #xsimplefw
 
     -   index.lua
+    -   framework
     -   app                 main application
         *   controllers
         *   models
