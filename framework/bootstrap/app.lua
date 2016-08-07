@@ -10,14 +10,15 @@ app.getInstance = function()
     end;
     return _instance;
 end
--- require ("current");
--- app.current = current;
-
 
 require("config.config");
+
 app.main = function ()
+    -- read config
     app.config = config;
-    app.current = {};
+    -- current init
+    app.current = current.new();
+    -- route
     app.route = route;
 end
 
