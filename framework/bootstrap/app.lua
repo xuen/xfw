@@ -12,14 +12,21 @@ app.getInstance = function()
 end
 
 require("config.config");
+require("bootstrap.current");
+require("bootstrap.route");
+require("bootstrap.filter");
 
 app.main = function ()
     -- read config
     app.config = config;
     -- current init
-    app.current = current.new();
+    current = Current.new();
+    -- filter
+    Filter.filter();
     -- route
-    app.route = route;
+    route = Route.new(app.current, config);
+    -- generateHandler
+    local handler = route.generateHandler();
 end
 
 
